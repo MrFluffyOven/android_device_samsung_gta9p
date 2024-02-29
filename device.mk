@@ -4,13 +4,22 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+LOCAL_PATH := device/samsung/gta9p
+
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-LOCAL_PATH := device/samsung/gta9p
-
-PRODUCT_PLATFORM := holi
+# define hardware platform
+PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+TARGET_RECOVERTY_DEVICE_MODULES += \
+    android.hidl.base@1.0
+
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service
 
 PRODUCT_PACKAGES += \
     bootctrl.$(PRODUCT_PLATFORM) \
