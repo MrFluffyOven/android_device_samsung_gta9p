@@ -5,7 +5,7 @@
 ## twrp 12.1 Manifest
     repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 ## Sync
-    repo sync
+    repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ## Clone MrFluffyOven twrp tree
     git clone https://github.com/MrFluffyOven/android_device_samsung_gta9p.git -b twrp-12.1 device/samsung/gta9p
 ## build:
