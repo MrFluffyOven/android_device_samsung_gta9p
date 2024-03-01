@@ -9,21 +9,22 @@ LOCAL_PATH := device/samsung/gta9p
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
+# API levels
+BOARD_API_LEVEL := 32
+PRODUCT_SHIPPING_API_LEVEL := 32
+
 # define hardware platform
 PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-TARGET_RECOVERTY_DEVICE_MODULES += \
-    android.hidl.base@1.0
-
-# Boot control HAL
+    # Health
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.$(PRODUCT_PLATFORM) \
-    bootctrl.$(PRODUCT_PLATFORM).recovery \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-impl.recovery \
+    android.hardware.health@2.1-service
 
 # fastbootd
 PRODUCT_PACKAGES += \
