@@ -13,11 +13,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-#TARGET_RECOVERTY_DEVICE_MODULES += \
+TARGET_RECOVERTY_DEVICE_MODULES += \
     android.hidl.base@1.0
 
 # Boot control HAL
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 
