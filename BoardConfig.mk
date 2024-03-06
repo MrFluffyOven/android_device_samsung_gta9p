@@ -9,14 +9,12 @@ DEVICE_PATH := device/samsung/gta9p
 
 # Platform
 TARGET_BOARD_PLATFORM := sm6375
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno619
 QCOM_BOARD_PLATFORMS += sm6375
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sm6375
 TARGET_NO_BOOTLOADER := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_USES_UEFI := true
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -156,4 +154,4 @@ TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_DEVICE_VERSION := stable (1.3)
+TW_DEVICE_VERSION := stable (1.4)
