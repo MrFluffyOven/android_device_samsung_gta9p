@@ -47,21 +47,7 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 # Display
 TARGET_SCREEN_DENSITY := 240
 
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 \
-			earlycon=msm_geni_serial,0x04C8C000 \
-			androidboot.hardware=qcom \
-			androidboot.console=ttyMSM0 \
-			androidboot.memcg=1 \
-			lpm_levels.sleep_disabled=1 \
-			video=vfb:640x400,bpp=32,memsize=3072000 \
-			msm_rtb.filter=0x237 \
-			service_locator.enable=1 \
-			androidboot.usbcontroller=4e00000.dwc3 \
-			swiotlb=0 loop.max_part=7 \
-			cgroup.memory=nokmem,nosocket \
-			iptable_raw.raw_before_defrag=1 \
-			ip6table_raw.raw_before_defrag=1 \
-			firmware_class.path=/vendor/firmware_mnt/image \
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8C000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=4e00000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 firmware_class.path=/vendor/firmware_mnt/image
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -124,8 +110,8 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 #TW_INCLUDE_CRYPTO := false
 #TW_INCLUDE_CRYPTO_FBE := false
 #TW_INCLUDE_FBE_METADATA_DECRYPT := false
-#BOARD_USES_METADATA_PARTITION := false
-#BOARD_USES_QCOM_FBE_DECRYPTION := false
+BOARD_USES_METADATA_PARTITION := true
+BOARD_USES_QCOM_FBE_DECRYPTION := true
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -144,14 +130,14 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+#TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
 #TW_INCLUDE_NTFS_3G := true
 #TW_USE_NEW_MINADBD := true
 TW_HAS_DOWNLOAD_MODE := true
 #TW_NO_REBOOT_BOOTLOADER := true
-TW_NO_LEGACY_PROPS := true
-TW_NO_BIND_SYSTEM := true
-TW_NO_SCREEN_BLANK := true
-TW_SCREEN_BLANK_ON_BOOT := true
+#TW_NO_LEGACY_PROPS := true
+#TW_NO_BIND_SYSTEM := true
+#TW_NO_SCREEN_BLANK := true
+#TW_SCREEN_BLANK_ON_BOOT := true
 TW_DEVICE_VERSION := stable (1.4)
