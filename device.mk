@@ -24,7 +24,7 @@ PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Boot control
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-impl-qti.recovery \
     bootctrl.holi.recovery
 
@@ -56,4 +56,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Copy modules for depmod
-PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/recovery/root/system/lib/modules/1.1,$(TARGET_COPY_OUT_RECOVERY)/root/system/lib/modules/1.1)
+#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/recovery/root/system/lib/modules/1.1,$(TARGET_COPY_OUT_RECOVERY)/root/system/lib/modules/1.1)
