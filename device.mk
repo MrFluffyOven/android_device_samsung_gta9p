@@ -23,6 +23,11 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl-qti.recovery \
+    bootctrl.holi.recovery
+
     # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
