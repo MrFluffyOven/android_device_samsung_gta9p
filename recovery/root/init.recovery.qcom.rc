@@ -40,3 +40,23 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+    # Mount firmware
+    mkdir /vendor/firmware_mnt
+    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt
+
+    export ANDROID_ROOT /system_root
+
+on boot
+    start health-hal-2-1
+
+on property:crypto.ready=1
+    start keymint-default
+    start keymaster-sb-4-0
+
+    on property:crypto.ready=0
+    stop keymaster-sb-4-0
+    stop keymint-default
+
+on property:twrp.user.0.decrypt=0
+    umount /vendor/firmware_mnt
