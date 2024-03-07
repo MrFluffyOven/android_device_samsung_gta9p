@@ -24,7 +24,7 @@ PRODUCT_PLATFORM := sm6375
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Boot control
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.boot@1.1-impl-qti.recovery \
     bootctrl.holi.recovery
 
@@ -35,7 +35,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # fastbootd
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
