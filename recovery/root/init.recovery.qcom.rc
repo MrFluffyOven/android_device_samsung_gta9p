@@ -29,13 +29,12 @@ on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
 
-on init
-    write /sys/class/backlight/panel0-backlight/brightness 200
-    setprop sys.usb.configfs 1
+on early-init
+    start linkblobs
 
-on property:ro.boot.usbcontroller=*
-    setprop sys.usb.controller ${ro.boot.usbcontroller}
-    write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
+on init
+    setprop prepdecrypt.setpatch true
+    write /sys/class/backlight/panel0-backlight/brightness 200
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -43,20 +42,14 @@ on fs
 
     # Mount firmware
     mkdir /vendor/firmware_mnt
-    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt
-
-    export ANDROID_ROOT /system_root
+    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
 
 on boot
     start health-hal-2-1
 
-on property:crypto.ready=1
-    start keymint-default
-    start keymaster-sb-4-0
-
-    on property:crypto.ready=0
-    stop keymaster-sb-4-0
-    stop keymint-default
-
-on property:twrp.user.0.decrypt=0
-    umount /vendor/firmware_mnt
+service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0

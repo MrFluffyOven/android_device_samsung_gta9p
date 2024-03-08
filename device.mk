@@ -23,7 +23,7 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
@@ -53,6 +53,9 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     libxml2 \
     vendor.display.config@1.0 \
     vendor.display.config@2.0
+
+RECOVERY_LIBRARY_SOURCE_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
 
 # QCOM
 PRODUCT_PACKAGES += \
