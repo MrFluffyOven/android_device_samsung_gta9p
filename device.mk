@@ -20,10 +20,9 @@ BOARD_API_LEVEL := 32
 PRODUCT_SHIPPING_API_LEVEL := 32
 
 # define hardware platform
-PRODUCT_PLATFORM := sm6375
+PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Boot control
 PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
@@ -34,8 +33,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-wrapper.recovery \
     android.hardware.boot@1.0-impl-wrapper \
     android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    bootctrl.holi.recovery
+    bootctrl.$(PRODUCT_PLATFORM) \
+    bootctrl.$(PRODUCT_PLATFORM).recovery \
 
     # Health
 PRODUCT_PACKAGES += \
