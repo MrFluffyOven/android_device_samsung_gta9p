@@ -16,8 +16,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # API levels
-BOARD_API_LEVEL := 32
-PRODUCT_SHIPPING_API_LEVEL := 32
+#BOARD_API_LEVEL := 32
+#PRODUCT_SHIPPING_API_LEVEL := 32
 
 # define hardware platform
 PRODUCT_PLATFORM := holi
