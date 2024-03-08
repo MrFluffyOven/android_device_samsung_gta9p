@@ -29,9 +29,6 @@ on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
 
-on early-init
-    start linkblobs
-
 on init
     setprop prepdecrypt.setpatch true
     write /sys/class/backlight/panel0-backlight/brightness 200
@@ -46,10 +43,3 @@ on fs
 
 on boot
     start health-hal-2-1
-
-service linkblobs /system/bin/linkblobs.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
