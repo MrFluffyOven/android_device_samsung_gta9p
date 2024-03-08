@@ -2,7 +2,7 @@
 
 # How-to compile it:
 
-## twrp 12.1 Manifest
+## twrp 11 Manifest
     repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 ## Sync
     repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
