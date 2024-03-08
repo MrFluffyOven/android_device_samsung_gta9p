@@ -25,6 +25,15 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Boot control
 PRODUCT_PACKAGES += \
+    otapreopt_script \
+    update_engine \
+    update_engine_sideload \
+    update_verifier \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl-wrapper.recovery \
+    android.hardware.boot@1.0-impl-wrapper \
+    android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.1-impl-qti.recovery \
     bootctrl.holi.recovery
 
