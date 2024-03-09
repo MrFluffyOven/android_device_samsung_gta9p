@@ -28,8 +28,7 @@
 on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
-    setprop ro.boot.fastbootd=true
-
+    
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
@@ -41,6 +40,9 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    setprop ro.boot.fastbootd=true
+
 
 on boot
     start health-hal-2-1
+    setprop ro.boot.fastbootd=true
