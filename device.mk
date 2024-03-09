@@ -30,9 +30,6 @@ PRODUCT_PACKAGES += \
     update_verifier \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
-    android.hardware.boot@1.0-impl-wrapper.recovery \
-    android.hardware.boot@1.0-impl-wrapper \
-    android.hardware.boot@1.0-impl.recovery \
     bootctrl.holi \
     bootctrl.holi.recovery \
 
@@ -41,12 +38,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
     android.hardware.health@2.1-service
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-service \
-    bootctrl.kona \
-    bootctrl.kona.recovery \
 
 # fastbootd
 PRODUCT_PACKAGES += \
