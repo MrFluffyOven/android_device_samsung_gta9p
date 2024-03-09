@@ -28,6 +28,7 @@
 on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
+    setprop ro.boot.fastbootd=true
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
