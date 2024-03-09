@@ -23,7 +23,7 @@ PRODUCT_SHIPPING_API_LEVEL := 32
 PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service
 
 # fastbootd
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
     fastbootd
 
