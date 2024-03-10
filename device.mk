@@ -28,10 +28,8 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    bootctrl.holi \
-    bootctrl.holi.recovery \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-service \
 
     # Health
 PRODUCT_PACKAGES += \
@@ -41,9 +39,13 @@ PRODUCT_PACKAGES += \
 
 # fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery \
+    android.hardware.fastboot@1.1-impl-mock \
+    android.hardware.fastboot@1.1-impl-mock.recovery \
     fastbootd
+
+# fastbootd
+PRODUCT_PACKAGES += \
+	fastbootd
 
     # Display
 TARGET_RECOVERY_DEVICE_MODULES += \

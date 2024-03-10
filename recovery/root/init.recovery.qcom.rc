@@ -40,9 +40,10 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    setprop ro.boot.fastbootd=true
+    start boot-hal-1-1
 
 
 on boot
     start health-hal-2-1
-    setprop ro.boot.fastbootd=true
+
+on property:ro.twrp.fastbootd=1
