@@ -25,6 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
 on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
@@ -47,7 +49,7 @@ on fs
 # Mount firmware
     mkdir /vendor/firmware_mnt
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
-    
+
 on boot
     start health-hal-2-1
 
