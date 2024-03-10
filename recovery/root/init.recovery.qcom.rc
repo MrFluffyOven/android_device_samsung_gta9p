@@ -28,6 +28,7 @@
 on early-init
     insmod /lib/modules/hx9023s.ko
     insmod /lib/modules/hx9036.ko
+    start linkblobs
     
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
@@ -43,7 +44,10 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
-
+# Mount firmware
+    mkdir /vendor/firmware_mnt
+    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
+    
 on boot
     start health-hal-2-1
 
@@ -69,4 +73,11 @@ service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qt
     user root
     group root
     disabled
+    seclabel u:r:recovery:s0
+
+    service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
     seclabel u:r:recovery:s0
