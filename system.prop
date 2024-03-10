@@ -15,5 +15,3 @@ ro.debuggable=1
 ro.boot.fastboot=1
 
 ro.boot.fastbootd=true
-
-ro.twrp.fastbootd=1
