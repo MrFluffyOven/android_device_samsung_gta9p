@@ -37,6 +37,7 @@ on init
     setprop sys.usb.configfs 1
     start vendor.qseecomd
     start boot-hal-1-1
+    setprop prepdecrypt.loglevel 2
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
