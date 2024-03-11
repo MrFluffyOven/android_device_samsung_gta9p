@@ -31,32 +31,24 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-service \
 
-    # Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl \
-    android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
-
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     android.hardware.fastboot@1.1-impl-mock.recovery \
     fastbootd
 
-# fastbootd
-PRODUCT_PACKAGES += \
-	fastbootd
-
     # Display
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2 \
+    libdmabufheap
+
     vendor.display.config@1.0 \
     vendor.display.config@2.0
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
-
+    $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so
 # QCOM
 PRODUCT_PACKAGES += \
     qcom_decrypt \
