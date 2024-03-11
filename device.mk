@@ -46,7 +46,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
     vendor.display.config@2.0
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so
 
 # QCOM
