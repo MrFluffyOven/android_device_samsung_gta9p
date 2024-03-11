@@ -41,14 +41,14 @@ PRODUCT_PACKAGES += \
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
     libxml2 \
-    libdmabufheap
-
+    libdmabufheap \
     vendor.display.config@1.0 \
     vendor.display.config@2.0
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so
     $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so
+
 # QCOM
 PRODUCT_PACKAGES += \
     qcom_decrypt \
