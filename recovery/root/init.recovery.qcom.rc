@@ -66,6 +66,8 @@ on late-fs
     # Mount RW partitions which need run fsck
     mount_all /system/etc/recovery.fstab --late
 
+on property:ro.twrp.fastbootd=0
+
 on boot
     start health-hal-2-1
 
