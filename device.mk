@@ -28,14 +28,6 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-service \
-
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
-    android.hardware.fastboot@1.1-impl-mock.recovery \
-    fastbootd
 
     # Display
 TARGET_RECOVERY_DEVICE_MODULES += \
