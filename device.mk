@@ -29,6 +29,20 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier \
 
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.1-impl.recovery \
+    android.hardware.boot@1.1-impl
+
+# fastbootd
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock
+
+# Heath hal
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-service \
+    android.hardware.health@2.1-impl
+
     # Display
 TARGET_RECOVERY_DEVICE_MODULES += \
     libion \
