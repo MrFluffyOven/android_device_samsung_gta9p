@@ -9,6 +9,5 @@ ro.security.keystore.keytype=sakm,gak,
 ro.crypto.metadata_init_delete_all_keys.enabled=false
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.metadata.method=dm-default-key
-ro.boot.boot_devices=soc/4804000.ufshc
 ro.boot.bootdevice=4804000.ufshc
 ro.debuggable=1
