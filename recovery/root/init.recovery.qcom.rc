@@ -28,8 +28,8 @@
 import /init.recovery.qcom_decrypt.rc
 
 on early-init
-    insmod /lib/modules/hx9023s.ko
-    insmod /lib/modules/hx9036.ko
+    insmod /lib/modules/1.1/hx9023s.ko
+    insmod /lib/modules/1.1/hx9036.ko
     start linkblobs
     start vold
     mkdir /mnt/vendor/persist
