@@ -126,7 +126,7 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 
 # Vendor Modules
 TW_LOAD_VENDOR_MODULES := "hx9023s.ko hx9036.ko"
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules)\")
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
