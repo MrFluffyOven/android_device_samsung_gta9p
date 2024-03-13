@@ -116,7 +116,7 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES := "hx9023s.ko hx9036.ko"
+#TW_LOAD_VENDOR_MODULES := "hx9023s.ko hx9036.ko"
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
 
 # Recovery
