@@ -1,7 +1,7 @@
 ro.product.board=holi
 ro.board.platform=holi
 
-
+ro.boot.bootdevice=4804000.ufshc
 ro.hardware.keystore=mdfpp
 ro.hardware.gatekeeper=mdfpp
 ro.hardware.keystore_desede=true
