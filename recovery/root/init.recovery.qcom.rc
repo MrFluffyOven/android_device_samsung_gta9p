@@ -28,13 +28,10 @@
 import /init.recovery.qcom_decrypt.rc
 
 on early-init
-    insmod /lib/modules/1.1/hx9023s.ko
-    insmod /lib/modules/1.1/hx9036.ko
+    insmod /lib/modules/5.4-gki/hx9023s.ko
+    insmod /lib/modules/5.4-gki/hx9036.ko
     start linkblobs
     start vold
-    mkdir /mnt/vendor/persist
-    mkdir /mnt/vendor/efs
-    mkdir /mnt/vendor/spunvm
     
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
@@ -65,8 +62,6 @@ on late-fs
 
     # Mount RW partitions which need run fsck
     mount_all /system/etc/recovery.fstab --late
-
-on property:ro.twrp.fastbootd=0
 
 on boot
     start health-hal-2-1
