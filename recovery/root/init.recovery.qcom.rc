@@ -28,8 +28,6 @@
 import /init.recovery.qcom_decrypt.rc
 
 on early-init
-    insmod /lib/modules/5.4-gki/hx9023s.ko
-    insmod /lib/modules/5.4-gki/hx9036.ko
     start linkblobs
     start vold
     
