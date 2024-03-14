@@ -15,3 +15,5 @@ ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.metadata.method=dm-default-key
 ro.debuggable=1
 persist.sys.usb.config=adb,mtp
+
+ro.boot.fastbootd
