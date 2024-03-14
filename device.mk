@@ -7,23 +7,20 @@
 LOCAL_PATH := device/samsung/gta9p
 
 # Inherit from common AOSP config
-$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# API levels
-BOARD_API_LEVEL := 32
-PRODUCT_SHIPPING_API_LEVEL := 32
 
 # define hardware platform
 PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
@@ -31,18 +28,15 @@ PRODUCT_PACKAGES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl.recovery \
-    android.hardware.boot@1.1-impl \
     bootctrl.$(PRODUCT_PLATFORM) \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
 
 # fastbootd
 PRODUCT_PACKAGES += \
-    fastbootd \
     android.hardware.fastboot@1.0-impl-mock
 
 # Heath hal
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl
 

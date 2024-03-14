@@ -10,15 +10,15 @@ DEVICE_PATH := device/samsung/gta9p
 # Bootloader & Board
 TARGET_BOOTLOADER_BOARD_NAME := holi #SRPWD25B001
 TARGET_BOARD_PLATFORM := holi
-QCOM_BOARD_PLATFORMS += holi
+#QCOM_BOARD_PLATFORMS += holi
 TARGET_BOARD_PLATFORM_GPU := adreno619
-TARGET_NO_BOOTLOADER := true
-BOARD_USES_QCOM_HARDWARE := true
+#TARGET_NO_BOOTLOADER := true
+#BOARD_USES_QCOM_HARDWARE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_FLIPPED_SCREEN := true
-TARGET_USES_UEFI := true
-ENABLE_CPUSETS := true
-ENABLE_SCHEDBOOST := true
+#TARGET_USES_UEFI := true
+#ENABLE_CPUSETS := true
+#ENABLE_SCHEDBOOST := true
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -40,15 +40,15 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
-TARGET_BOARD_SUFFIX := _64
-TARGET_USES_64_BIT_BINDER := true
+#TARGET_BOARD_SUFFIX := _64
+#TARGET_USES_64_BIT_BINDER := true
 
 # Display
 TARGET_SCREEN_DENSITY := 240
 
 # Board Commandline
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8C000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=4e00000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 firmware_class.path=/vendor/firmware_mnt/image
-BOARD_KERNEL_CMDLINE := androidboot.selinux=enforce
+#BOARD_KERNEL_CMDLINE := androidboot.selinux=enforce
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -137,11 +137,11 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 TW_INCLUDE_FBE_METADATA_DECRYPT := true
 BOARD_USES_METADATA_PARTITION := true
 BOARD_USES_QCOM_FBE_DECRYPTION := true
-PRODUCT_ENFORCE_VINTF_MANIFEST := true
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+#PRODUCT_ENFORCE_VINTF_MANIFEST := true
+#DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-DEXPREOPT_GENERATE_APEX_IMAGE := true
+#DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 
 # Hack: prevent anti rollback
@@ -160,29 +160,29 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # fstab
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+#TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
-TW_INCLUDE_NTFS_3G := true
-TW_USE_NEW_MINADBD := true
+#TW_INCLUDE_NTFS_3G := true
+#TW_USE_NEW_MINADBD := true
 TW_HAS_DOWNLOAD_MODE := true
-TW_NO_LEGACY_PROPS := true
-TW_NO_BIND_SYSTEM := true
+#TW_NO_LEGACY_PROPS := true
+#TW_NO_BIND_SYSTEM := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_USE_FSCRYPT_POLICY := 2
-TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
-RECOVERY_SDCARD_ON_DATA := true
+#TW_USE_FSCRYPT_POLICY := 2
+#TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
+#RECOVERY_SDCARD_ON_DATA := true
 TW_MAX_BRIGHTNESS := 200
-TW_INCLUDE_RESETPROP := true
+#TW_INCLUDE_RESETPROP := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true
+#TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_NO_REBOOT_BOOTLOADER := true
-TW_INCLUDE_FASTBOOTD := true
-TW_DEVICE_VERSION := Beta (2.0.2)
+#TW_INCLUDE_FASTBOOTD := true
+TW_DEVICE_VERSION := Beta (2.0.3)
