@@ -11,7 +11,5 @@ ro.hardware.gatekeeper=mdfpp
 ro.hardware.keystore_desede=true
 ro.security.keystore.keytype=sakm,gak,
 ro.crypto.metadata_init_delete_all_keys.enabled=false
-ro.crypto.dm_default_key.options_format.version=2
-ro.crypto.volume.metadata.method=dm-default-key
 ro.debuggable=1
 persist.sys.usb.config=adb,mtp
