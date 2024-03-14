@@ -32,6 +32,11 @@ on early-init
     start vold
     
 on init
+    # unlink /efs > /mnt/vendor/efs
+    rm /efs
+    mkdir /efs
+    mkdir /sec_efs
+    
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
     start vendor.qseecomd
