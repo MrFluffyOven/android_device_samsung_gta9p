@@ -10,10 +10,10 @@ DEVICE_PATH := device/samsung/gta9p
 # Bootloader & Board
 TARGET_BOOTLOADER_BOARD_NAME := holi #SRPWD25B001
 TARGET_BOARD_PLATFORM := holi
-#QCOM_BOARD_PLATFORMS += holi
+QCOM_BOARD_PLATFORMS += holi
 TARGET_BOARD_PLATFORM_GPU := adreno619
 #TARGET_NO_BOOTLOADER := true
-#BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QCOM_HARDWARE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_FLIPPED_SCREEN := true
 #TARGET_USES_UEFI := true
@@ -40,15 +40,15 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
-#TARGET_BOARD_SUFFIX := _64
-#TARGET_USES_64_BIT_BINDER := true
+TARGET_BOARD_SUFFIX := _64
+TARGET_USES_64_BIT_BINDER := true
 
 # Display
 TARGET_SCREEN_DENSITY := 240
 
 # Board Commandline
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8C000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=4e00000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 firmware_class.path=/vendor/firmware_mnt/image
-#BOARD_KERNEL_CMDLINE := androidboot.selinux=enforce
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -141,7 +141,7 @@ BOARD_USES_QCOM_FBE_DECRYPTION := true
 #DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-#DEXPREOPT_GENERATE_APEX_IMAGE := true
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 
 # Hack: prevent anti rollback

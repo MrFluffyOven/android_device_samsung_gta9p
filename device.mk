@@ -20,7 +20,7 @@ LOCAL_PATH := device/samsung/gta9p
 PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
