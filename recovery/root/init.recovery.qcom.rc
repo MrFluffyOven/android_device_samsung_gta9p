@@ -31,6 +31,7 @@ on early-init
     start linkblobs
     start vold
     start ueventd
+    start apexd
     
 on init
     # unlink /efs > /mnt/vendor/efs
@@ -117,10 +118,18 @@ service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qt
     disabled
     seclabel u:r:recovery:s0
 
-    service linkblobs /system/bin/linkblobs.sh
+service linkblobs /system/bin/linkblobs.sh
     user root
     group root
     disabled
     oneshot
     seclabel u:r:recovery:s0
+
+service apexd /system/bin/apexd
+    interface aidl apexservice
+    class core
+    user root
+    group root
+    oneshot
+ 
 
