@@ -39,7 +39,6 @@ on init
     mkdir /sec_efs
 
     export ANDROID_ROOT /system_root
-    export ANDROID_DATA /data 
     #data may cause bootloop
 
     write /sys/class/backlight/panel0-backlight/brightness 200
