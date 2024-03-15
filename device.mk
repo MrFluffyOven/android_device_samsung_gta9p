@@ -7,7 +7,7 @@
 LOCAL_PATH := device/samsung/gta9p
 
 # Inherit from common AOSP config
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Enable updating of APEXes
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -26,8 +26,6 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier \
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
