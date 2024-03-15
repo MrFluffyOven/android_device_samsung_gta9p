@@ -27,109 +27,14 @@
 
 import /init.recovery.qcom_decrypt.rc
 
-on early-init
-    start linkblobs
-    start vold
-    start ueventd
-    start apexd
-    
 on init
-    # unlink /efs > /mnt/vendor/efs
-    rm /efs
-    mkdir /efs
-    mkdir /sec_efs
-
-    export ANDROID_ROOT /system_root
-    export ANDROID_DATA /data
-    #data may cause bootloop
-
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
-    start vendor.qseecomd
-    start boot-hal-1-1
-    setprop prepdecrypt.loglevel 2
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     write /sys/class/udc/${ro.boot.usbcontroller}/device/../mode peripheral
 
-on late-init
-service fastbootd /system/bin/fastbootd
-    disabled
-    user root
-    group root
-    seclabel u:r:fastbootd:s0
-
-    service ueventd /system/bin/ueventd
-    critical
-    seclabel u:r:ueventd:s0
-
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-    #@RECOVERY [For reboot reason.
-    symlink /dev/block/by-name/param /dev/block/param
-    chown root system /dev/block/param
-    chmod 0666 /dev/block/param
-#]
-    mkdir /dev/usb-ffs 0775 shell shell
-    mkdir /dev/usb-ffs/adb 0770 shell shell
-    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    mkdir /dev/usb-ffs/fastboot 0770 system system
-    mount functionfs fastboot /dev/usb-ffs/fastboot rmode=0770,fmode=0660,uid=1000,gid=1000
-
-        # Mount firmware
-    mkdir /vendor/firmware_mnt
-    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist rw
-    mount ext4 /dev/block/bootdevice/by-name/efs /mnt/vendor/efs rw
-    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
-
-on late-fs
-   … 
-    # Wait for keymaster
-    exec_start wait_for_keymaster
-
-    # Mount RW partitions which need run fsck
-    mount_all /system/etc/recovery.fstab --late
-
-on boot
-    start health-hal-2-1
-
-on property:vendor.sys.listeners.registered=true
-    start keymaster-4-1
-    start gatekeeper-1-0
-
-service vendor.qseecomd /vendor/bin/qseecomd
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service keymaster-4-1 /vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service gatekeeper-1-0 /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service linkblobs /system/bin/linkblobs.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-
-service apexd /system/bin/apexd
-    interface aidl apexservice
-    class core
-    user root
-    group root
-    oneshot
- 
-
