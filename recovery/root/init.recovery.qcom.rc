@@ -30,6 +30,7 @@ import /init.recovery.qcom_decrypt.rc
 on early-init
     start linkblobs
     start vold
+    start ueventd
     
 on init
     # unlink /efs > /mnt/vendor/efs
@@ -57,6 +58,10 @@ service fastbootd /system/bin/fastbootd
     user root
     group root
     seclabel u:r:fastbootd:s0
+
+    service ueventd /system/bin/ueventd
+    critical
+    seclabel u:r:ueventd:s0
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
