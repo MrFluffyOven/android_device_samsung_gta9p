@@ -15,3 +15,4 @@ ro.crypto.metadata_init_delete_all_keys.enabled=false
 ro.debuggable=1
 ro.treble.enabled=true
 ro.build.characteristics=tablet
+persist.sys.usb.config=mtp
