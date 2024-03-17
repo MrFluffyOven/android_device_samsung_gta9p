@@ -37,7 +37,7 @@ PRODUCT_PACKAGES += \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
 
 # fastbootd
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock
 
 # Heath hal
