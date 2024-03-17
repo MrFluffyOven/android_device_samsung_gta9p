@@ -17,8 +17,8 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_FLIPPED_SCREEN := true
 #TARGET_USES_UEFI := true
-#ENABLE_CPUSETS := true
-#ENABLE_SCHEDBOOST := true
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -48,7 +48,7 @@ TARGET_SCREEN_DENSITY := 240
 
 # Board Commandline
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8C000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=4e00000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 firmware_class.path=/vendor/firmware_mnt/image
-#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=soc/4804000.ufshc
+BOARD_KERNEL_CMDLINE += androidboot.selinux=enforce androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=soc/4804000.ufshc
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -160,7 +160,7 @@ TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # fstab
-#TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # TWRP Configuration
 TW_THEME := portrait_hdpi
@@ -168,22 +168,22 @@ TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_EXCLUDE_TWRPAPP := true
-#TW_INCLUDE_NTFS_3G := true
+TW_INCLUDE_NTFS_3G := true
 #TW_USE_NEW_MINADBD := true
 TW_HAS_DOWNLOAD_MODE := true
-#TW_NO_LEGACY_PROPS := true
+TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_USE_FSCRYPT_POLICY := 2
 #TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
-#RECOVERY_SDCARD_ON_DATA := true
+RECOVERY_SDCARD_ON_DATA := true
 TW_MAX_BRIGHTNESS := 200
-#TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_RESETPROP := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_NO_REBOOT_BOOTLOADER := true
-#TW_INCLUDE_FASTBOOTD := true
+TW_INCLUDE_FASTBOOTD := true
 TW_HAS_EDL_MODE := true
-TW_DEVICE_VERSION := Beta (2.0.5)
+TW_DEVICE_VERSION := test_branch (1.0.0)
