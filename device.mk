@@ -10,13 +10,13 @@ LOCAL_PATH := device/samsung/gta9p
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Enable project quotas and casefolding for emulated storage without sdcardfs
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # define hardware platform
 PRODUCT_PLATFORM := holi
@@ -24,9 +24,10 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
+    cppreopts.sh \
     update_engine \
-    update_engine_sideload \
     update_verifier \
+    update_engine_sideload
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
@@ -39,8 +40,10 @@ PRODUCT_PACKAGES += \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
 
 # fastbootd
-#PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock \
+    android.hardware.fastboot@1.0-impl-mock.recovery \
+    fastbootd
 
 # Heath hal
 PRODUCT_PACKAGES += \
