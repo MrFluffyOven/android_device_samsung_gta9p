@@ -115,7 +115,7 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system system_ext vendor product odm vendor_dlkm #system_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 BOARD_SUPPRESS_SECURE_ERASE := true
-#LZMA_RAMDISK_TARGETS := recovery
+LZMA_RAMDISK_TARGETS := recovery
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -214,4 +214,6 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 #TW_SKIP_ADDITIONAL_FSTAB := true
 TW_EXCLUDE_APEX := true
+TW_INCLUDE_LPDUMP := true
+TW_INCLUDE_LPTOOLS := true
 TW_DEVICE_VERSION := (B1.0.4)
