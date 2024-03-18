@@ -51,9 +51,10 @@ on fs
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
 
 on post-fs
-    start boot-hal-1-1
+   start boot-hal-1-1
 
 on boot
+on property:ro.twrp.fastbootd=0
     start health-hal-2-1
 
 service linkblobs /system/bin/linkblobs.sh
