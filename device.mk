@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 30
+
 # define hardware platform
 PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
