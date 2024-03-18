@@ -55,6 +55,7 @@ on post-fs
 
 on boot
 on property:ro.twrp.fastbootd=0
+on property:ro.twrp.boot=1
     start health-hal-2-1
 
 service linkblobs /system/bin/linkblobs.sh
