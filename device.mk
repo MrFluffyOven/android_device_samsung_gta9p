@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
     update_engine_sideload
 
 # Boot control HAL
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.0-service \
