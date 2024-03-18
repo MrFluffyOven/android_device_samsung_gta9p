@@ -116,6 +116,7 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system system_e
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 BOARD_SUPPRESS_SECURE_ERASE := true
 LZMA_RAMDISK_TARGETS := recovery
+BOARD_INCLUDE_BOOTIMG_DTB := true
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
