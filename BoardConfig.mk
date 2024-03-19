@@ -115,7 +115,7 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system system system_ext vendor product odm vendor_dlkm #system_dlkm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 BOARD_SUPPRESS_SECURE_ERASE := true
-LZMA_RAMDISK_TARGETS := recovery
+#LZMA_RAMDISK_TARGETS := recovery
 BOARD_INCLUDE_BOOTIMG_DTB := true
 
 # Additional binaries & libraries needed for recovery
@@ -135,7 +135,7 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
+#TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
@@ -199,13 +199,13 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_NO_LEGACY_PROPS := true
 TW_NO_BIND_SYSTEM := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_USE_FSCRYPT_POLICY := 2
+#TW_USE_FSCRYPT_POLICY := 2
 #TW_FIX_DECRYPTION_ON_DATA_MEDIA := true
 RECOVERY_SDCARD_ON_DATA := true
 TW_MAX_BRIGHTNESS := 200
 TW_INCLUDE_RESETPROP := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
-TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+#TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_NO_REBOOT_BOOTLOADER := true
