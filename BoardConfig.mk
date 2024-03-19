@@ -56,7 +56,7 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=soc/4804000.ufshc
 #BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 # Extras
-BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware vendor_dlkm system_dlkm metadata prism
+BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware metadata prism
 
 # Kernel
 BOARD_HEADER_VERSION := 2
