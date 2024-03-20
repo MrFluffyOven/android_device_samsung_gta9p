@@ -14,3 +14,4 @@ ro.security.keystore.keytype=sakm,gak,
 ro.crypto.metadata_init_delete_all_keys.enabled=false
 ro.debuggable=1
 ro.build.characteristics=tablet
+ro.vndk.version=30
