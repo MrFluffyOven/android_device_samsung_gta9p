@@ -56,7 +56,7 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=soc/4804000.ufshc
 #BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 # Extras
-BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware metadata prism
+BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware
 
 # Kernel
 BOARD_HEADER_VERSION := 2
@@ -220,7 +220,7 @@ TW_NO_REBOOT_BOOTLOADER := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 #TW_SKIP_ADDITIONAL_FSTAB := true
 TW_EXCLUDE_APEX := true
-TW_INCLUDE_LPDUMP := true
-TW_INCLUDE_LPTOOLS := true
-TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
-TW_DEVICE_VERSION := (B1.0.6)
+#TW_INCLUDE_LPDUMP := true
+#TW_INCLUDE_LPTOOLS := true
+#TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
+TW_DEVICE_VERSION := (B1.0.7)
