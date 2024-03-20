@@ -16,6 +16,7 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from gta9p device
 $(call inherit-product, device/samsung/gta9p/device.mk)
+$(call inherit-product, device/qcom/qssi/device.mk)
 
 PRODUCT_DEVICE := gta9p
 PRODUCT_NAME := twrp_gta9p
