@@ -20,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
+PRODUCT_SHIPPING_API_LEVEL := 31
 
 # define hardware platform
 PRODUCT_PLATFORM := holi
