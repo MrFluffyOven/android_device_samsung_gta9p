@@ -85,6 +85,3 @@ PRODUCT_SOONG_NAMESPACES += \
 # tzdata
 PRODUCT_PACKAGES_ENG += \
     tzdata_twrp
-
-    # Inherit the proprietary files
-$(call inherit-product, vendor/samsung/gta9p/gta9p-vendor.mk)
