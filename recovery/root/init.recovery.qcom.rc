@@ -59,16 +59,10 @@ on fs
     # Force ANDROID_ROOT to /system_root
     export ANDROID_ROOT /system_root
 
-# Mount firmware
-    mkdir /vendor/firmware_mnt
-    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
-
 on post-fs
    start boot-hal-1-1
 
 on boot
-on property:ro.twrp.fastbootd=0
-on property:ro.twrp.boot=1
     start health-hal-2-1
 
 service linkblobs /system/bin/linkblobs.sh
