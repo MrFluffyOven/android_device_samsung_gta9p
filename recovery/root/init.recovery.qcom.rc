@@ -28,25 +28,9 @@
 
 import /init.recovery.qcom_decrypt.rc
 
-on early-init
-    start linkblobs
-      
-      # create symlink for vendor mount points
-    symlink /vendor/firmware_mnt /firmware
-    symlink /vendor/bt_firmware /bt_firmware
-    symlink /vendor/dsp /dsp
-
-      # Change ownership of sysfs power control node
-    chown system graphics /sys/class/drm/card0/device/power/control
-
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
-    start vendor.qseecomd
-
-    symlink /dev/block/bootdevice/by-name/steady  /dev/block/steady
-    symlink /dev/block/bootdevice/by-name/persistent  /dev/block/persistent
-
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -58,22 +42,3 @@ on fs
 
     # Force ANDROID_ROOT to /system_root
     export ANDROID_ROOT /system_root
-
-on post-fs
-   start boot-hal-1-1
-
-on boot
-    start health-hal-2-1
-
-service linkblobs /system/bin/linkblobs.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
-
-    service vendor.qseecomd /vendor/bin/qseecomd
-    class core
-    user root
-    group root
-

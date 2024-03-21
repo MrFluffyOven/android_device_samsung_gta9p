@@ -7,7 +7,7 @@
 ## Sync
     repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ## Clone MrFluffyOven twrp tree
-    git clone https://github.com/MrFluffyOven/android_device_samsung_gta9p.git -b twrp-12.1 device/samsung/gta9p
+    git clone https://github.com/MrFluffyOven/android_device_samsung_gta9p.git -b a device/samsung/gta9p
 ## build:
     export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_gta9p-eng; mka recoveryimage
 ## Multidisabler
