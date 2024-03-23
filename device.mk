@@ -38,11 +38,11 @@ PRODUCT_PACKAGES += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl \
-    android.hardware.boot@1.1-impl.recovery \
-    android.hardware.boot@1.1-service \
-    android.hardware.boot@1.1-impl-wrapper \
-    android.hardware.boot@1.1-impl-wrapper.recovery \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service \
+    android.hardware.boot@1.2-impl-wrapper \
+    android.hardware.boot@1.2-impl-wrapper.recovery \
     bootctrl.$(PRODUCT_PLATFORM) \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
 
