@@ -149,7 +149,7 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 # Vendor Modules
 TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/gki-5.4)\")
+#TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/gki-5.4)\")
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
