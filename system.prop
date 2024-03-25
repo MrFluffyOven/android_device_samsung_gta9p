@@ -7,11 +7,6 @@ ro.product.system.model=SM-X216B
 
 ro.boot.usbcontroller=4e00000.dwc3
 ro.boot.bootdevice=4804000.ufshc
-ro.hardware.keystore=mdfpp
-ro.hardware.gatekeeper=mdfpp
-ro.hardware.keystore_desede=true
-ro.security.keystore.keytype=sakm,gak,
-ro.crypto.metadata_init_delete_all_keys.enabled=false
 ro.debuggable=1
 ro.build.characteristics=tablet
 ro.vndk.version=30
