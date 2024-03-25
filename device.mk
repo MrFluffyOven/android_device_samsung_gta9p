@@ -30,19 +30,15 @@ PRODUCT_PLATFORM := holi
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
     update_engine \
     update_verifier \
     update_engine_sideload
 
 # Boot control HAL
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-impl \
     android.hardware.boot@1.2-impl.recovery \
-    android.hardware.boot@1.2-service \
-    android.hardware.boot@1.2-impl-wrapper \
-    android.hardware.boot@1.2-impl-wrapper.recovery \
+    android.hardware.boot@1.1-impl-qti
     bootctrl.$(PRODUCT_PLATFORM) \
     bootctrl.$(PRODUCT_PLATFORM).recovery \
 
