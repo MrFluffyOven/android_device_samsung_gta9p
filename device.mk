@@ -9,15 +9,6 @@ LOCAL_PATH := device/samsung/gta9p
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Enable updating of APEXes
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
-# Installs gsi keys into ramdisk, to boot a GSI with verified boot.
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
-
-# Enable project quotas and casefolding for emulated storage without sdcardfs
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
-
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 30
 
@@ -33,30 +24,6 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
-
-# Boot control HAL
-#PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-impl \
-    android.hardware.boot@1.2-impl.recovery \
-    bootctrl.$(PRODUCT_PLATFORM) \
-    bootctrl.$(PRODUCT_PLATFORM).recovery \
-
-#PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-qti \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    bootctrl.$(PRODUCT_PLATFORM) \
-    bootctrl.$(PRODUCT_PLATFORM).recovery \
-
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.1-impl-mock \
-    android.hardware.fastboot@1.1-impl-mock.recovery \
-    fastbootd
-
-# Heath hal
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-service \
-    android.hardware.health@2.1-impl
 
     # Display
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -75,14 +42,3 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 PRODUCT_PACKAGES += \
     qcom_decrypt \
     qcom_decrypt_fbe
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
-
-# Copy modules for depmod
-#PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*.ko,$(DEVICE_PATH)/prebuilt/lib/modules/1.1,$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1.1)
-
-# tzdata
-PRODUCT_PACKAGES_ENG += \
-    tzdata_twrp
