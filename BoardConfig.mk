@@ -52,44 +52,55 @@ TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_SCREEN_DENSITY := 240
 
 # Board Commandline
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x04C8C000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=4e00000.dwc3 swiotlb=0 loop.max_part=7 cgroup.memory=nokmem,nosocket iptable_raw.raw_before_defrag=1 ip6table_raw.raw_before_defrag=1 firmware_class.path=/vendor/firmware_mnt/image
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.init_fatal_reboot_target=recovery androidboot.boot_devices=soc/4804000.ufshc androidboot.bootdevice=4804000.ufshc
-#BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
-# Extras
-BOARD_ROOT_EXTRA_FOLDERS := persist efs sec_efs firmware
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 \
+                        earlycon=msm_geni_serial,0x04C8C000 \
+                        androidboot.hardware=qcom \
+                        androidboot.console=ttyMSM0 \
+                        androidboot.memcg=1 \
+                        lpm_levels.sleep_disabled=1 \
+                        video=vfb:640x400,bpp=32,memsize=3072000 \
+                        msm_rtb.filter=0x237 \
+                        service_locator.enable=1 \
+                        androidboot.usbcontroller=4e00000.dwc3 \
+                        swiotlb=0 \
+                        loop.max_part=7 \
+                        cgroup.memory=nokmem,nosocket \
+                        iptable_raw.raw_before_defrag=1 \
+                        ip6table_raw.raw_before_defrag=1 \
+                        firmware_class.path=/vendor/firmware_mnt/image \
+                        androidboot.selinux=enforce
 
 # Kernel
-BOARD_HEADER_VERSION := 2
-BOARD_BOOT_HEADER_VERSION := 2
-BOARD_BOOT_HEADER_NAME := SRPWD25B001
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_RAMDISK_OFFSET := 0x02000000
-BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
-BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_KERNEL_SECOND_OFFSET := 0x00000000
-BOARD_RECOVERY_DTBO_OFFSET := 53387264
-BOARD_DTB_OFFSET := 0x01f00000
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DTBO := true
-TARGET_KERNEL_CONFIG := gta9p_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/gta9p
-TARGET_FORCE_PREBUILT_KERNEL := true
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+TARGET_KERNEL_ARCH := $(TARGET_ARCH)
+BOARD_KERNEL_IMAGE_NAME := Image.gz
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/$(BOARD_KERNEL_IMAGE_NAME)
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 BOARD_CUSTOM_BOOTIMG := true
-BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
-BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_KERNEL_SECOND_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
-BOARD_MKBOOTIMG_ARGS += --board $(BOARD_BOOT_HEADER_NAME)
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+
+
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 4096
+ BOARD_MKBOOTIMG_ARGS := \
+ --dtb $(TARGET_PREBUILT_DTB) \
+ --board SRPWD25B001 \
+ --ramdisk_offset 0x02000000 \
+ --kernel_offset 0x00008000 \
+ --second_offset 0x00000000 \
+ --dtb_offset 0x01f00000 \
+ --header_version 2 \
+ --tags_offset 0x01e00000  
+ BOARD_ROOT_EXTRA_FOLDERS := \
+    carrier \
+    efs \
+    omr \
+    optics \
+    prism \
+    spu \
+    persist \
+    sec_efs \
+    firmware
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
@@ -119,16 +130,6 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product odm
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
 BOARD_SUPPRESS_SECURE_ERASE := true
-#LZMA_RAMDISK_TARGETS := recovery
-#BOARD_RAMDISK_USE_LZMA := true
-
-BOARD_ROOT_EXTRA_FOLDERS := \
-    carrier \
-    efs \
-    omr \
-    optics \
-    prism \
-    spu
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -147,27 +148,22 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
 # Vendor Modules
-TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
+#TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/1.1)\")
 # Vendor Modules
-#TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/gki-5.4)\")
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(DEVICE_PATH)/prebuilt/lib/modules/gki-5.4)\")
 
 # Recovery
 BOARD_INCLUDE_RECOVERY_DTBO := true
-#BOARD_INCLUDE_BOOTIMG_DTB := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-#TARGET_USES_MKE2FS := true
-
-# GPT Utils
-#BOARD_PROVIDES_GPTUTILS := true
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2021-08-01
 
 # Android Verified Boot
-#BOARD_AVB_ENABLE := false
-#BOARD_BUILD_DISABLED_VBMETAIMAGE := true
+BOARD_AVB_ENABLE := false
+BOARD_BUILD_DISABLED_VBMETAIMAGE := true
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -186,7 +182,6 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-#DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 
 # Hack: prevent anti rollback
@@ -228,10 +223,6 @@ TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_INCLUDE_LIBRESETPROP := true
 TW_NO_REBOOT_BOOTLOADER := true
-#TW_INCLUDE_FASTBOOTD := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
-#TW_SKIP_ADDITIONAL_FSTAB := true
 TW_EXCLUDE_APEX := true
-#TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
-#TW_NO_FASTBOOT_BOOT := true
-TW_DEVICE_VERSION := (B1.0.14)
+TW_DEVICE_VERSION := (B1.0.15)

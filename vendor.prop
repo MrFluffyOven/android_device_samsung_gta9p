@@ -8,3 +8,7 @@ ro.hardware.gatekeeper=mdfpp
 
 # USB
 vendor.usb.use_ffs_mtp=1
+
+# TWRP
+ro.twrp.fastboot=1
+ro.twrp.boot=1
