@@ -22,5 +22,4 @@ ro.boot.usbcontroller=4e00000.dwc3
 ro.boot.bootdevice=4804000.ufshc
 ro.debuggable=1
 ro.build.characteristics=tablet
-ro.vndk.version=30
 ro.build.sdk.version=30
