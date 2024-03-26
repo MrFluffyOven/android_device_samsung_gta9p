@@ -15,7 +15,7 @@ ro.twrp.boot=1
 
 # boot
 ro.boot.fastboot=1
-ro.boot.fastbootd=1
+ro.boot.fastbootd=true
 
 # Uncategorised
 ro.boot.usbcontroller=4e00000.dwc3
