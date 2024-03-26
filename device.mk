@@ -10,7 +10,7 @@ LOCAL_PATH := device/samsung/gta9p
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # VNDK
-PRODUCT_TARGET_VNDK_VERSION := 30
+PRODUCT_TARGET_VNDK_VERSION := 32
 
 # API levels
 BOARD_API_LEVEL := 30
