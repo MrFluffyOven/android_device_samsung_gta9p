@@ -28,6 +28,9 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+on early-init
+    start linkblobs
+
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
@@ -40,9 +43,21 @@ on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
+    chmod 0660 /dev/qseecom
+    chown system drmrpc /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
+
 # Mount firmware
     mkdir /vendor/firmware_mnt
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
 
     # Force ANDROID_ROOT to /system_root
     export ANDROID_ROOT /system_root
+
+service linkblobs /system/bin/linkblobs.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
