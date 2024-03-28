@@ -8,18 +8,3 @@ ro.hardware.gatekeeper=mdfpp
 
 # USB
 vendor.usb.use_ffs_mtp=1
-
-# TWRP
-ro.twrp.fastboot=1
-ro.twrp.boot=1
-
-# boot
-ro.boot.fastboot=1
-ro.boot.fastbootd=true
-
-# Uncategorised
-ro.boot.usbcontroller=4e00000.dwc3
-ro.boot.bootdevice=4804000.ufshc
-ro.debuggable=1
-ro.build.characteristics=tablet
-ro.build.sdk.version=30

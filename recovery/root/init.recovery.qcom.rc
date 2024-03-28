@@ -24,16 +24,15 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
-
 import /init.recovery.qcom_decrypt.rc
-
-on early-init
-    start linkblobs
 
 on init
     write /sys/class/backlight/panel0-backlight/brightness 200
     setprop sys.usb.configfs 1
+    export LD_LIBRARY_PATH /system/lib64:/system/lib64/hw:/vendor/lib64:/vendor/lib64/hw
+
+on boot
+    start health-hal-2-1
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
@@ -42,22 +41,7 @@ on property:ro.boot.usbcontroller=*
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-
-    chmod 0660 /dev/qseecom
-    chown system drmrpc /dev/qseecom
-    chmod 0664 /dev/ion
-    chown system system /dev/ion
-
-# Mount firmware
+    # Mount firmware
     mkdir /vendor/firmware_mnt
     mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
 
-    # Force ANDROID_ROOT to /system_root
-    export ANDROID_ROOT /system_root
-
-service linkblobs /system/bin/linkblobs.sh
-    user root
-    group root
-    disabled
-    oneshot
-    seclabel u:r:recovery:s0
