@@ -22,6 +22,7 @@ PRODUCT_PACKAGES += \
 TARGET_RECOVERY_DEVICE_MODULES += \
     libdisplayconfig.qti \
     libion \
+    libspl.so \
     libxml2 \
     libdmabufheap \
     vendor.display.config@1.0 \
@@ -29,6 +30,7 @@ TARGET_RECOVERY_DEVICE_MODULES += \
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    &(TARGET_OUT_SHARED_LIBRARIES)/libspl.so
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so \
@@ -43,6 +45,6 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
-    
+
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 32
