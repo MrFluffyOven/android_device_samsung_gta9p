@@ -1,13 +1,14 @@
 #
-# Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_gta9p.mk
+    $(LOCAL_DIR)/twrp_gta9p.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_gta9p-user \
-    lineage_gta9p-userdebug \
-    lineage_gta9p-eng
+    twrp_gta9p-user \
+    twrp_gta9p-userdebug \
+    twrp_gta9p-eng
